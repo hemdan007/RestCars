@@ -26,7 +26,6 @@ namespace RestCars.Controllers
             // Here we use a simple hardcoded check:
             if (login.Username == "admin" && login.Password == "1234")
             {
-                //law el data tmam yb2a n3ml token
                 var token = GenerateJwtToken(login.Username, "Admin");
                 return Ok(new { token, role = "Admin" });
             }
@@ -35,7 +34,6 @@ namespace RestCars.Controllers
                 var token = GenerateJwtToken(login.Username, "User");
                 return Ok(new { token, role = "User" });
             }
-            //law el data msh sa7 hirg3 401 Unauthorized
             return Unauthorized("Invalid username or password.");
         }
 
